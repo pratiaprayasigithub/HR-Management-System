@@ -16,6 +16,7 @@ padding:0px;
 </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light text-primary">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +61,7 @@ padding:0px;
 <br>
 <h2 align="center">EMPLOYEE RECORDS</h2>
 <a href="index.jsp" class="btn btn-info">NEW REGISTRATION</a>
-<
+
 <table class="table table-hover text-center">
 <thead>
 <tr>
@@ -79,7 +80,7 @@ try{
 	Class.forName("com.mysql.jdbc.Driver");
 	connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee?charcterEncoding=utf8","root","1234");
 	statement = connection.createStatement();
-	resultSet = statement.executeQuery("select * from  emp");
+	resultSet = statement.executeQuery("select * from  employee.emp");
 	while( resultSet.next()){
 		
 %>
@@ -89,8 +90,8 @@ try{
 <td scope="row"> <b> <% out.println( resultSet.getString("employee_name")); %></b></td>
 <td><div class="card" style="width: 5rem;">
 <a href='Update_record.jsp?u=<%=resultSet.getString("employee_id")%>' class="btn btn-success"><b>Edit</b></a>
-<td><b> <from action='DeleteRecord?d=<%= resultSet.getString("employee_id")%>' method="post"> <div class="card" style="width: 5rem">
-<input type="submit" name="delete" value="Delete" id="<%=  resultSet.getString("employee_id") %>"  class="form-control btn-danger font-weight-bolder"></form>
+<td><b> <form action='DeleteRecord?d=<%=resultSet.getString("employee_id")%>' method="post"> <div class="card" style="width: 5rem">
+<input type="submit" name="delete" value="Delete" id="<%=resultSet.getString("employee_id") %>"  class="form-control btn-danger font-weight-bolder"></form>
 </div></form></b></td>
  
  </tr>
